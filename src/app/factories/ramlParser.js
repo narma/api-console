@@ -59,13 +59,18 @@
           },
           httpResolver:      {
             getResourceAsync: function getResourceAsync(url) {
+              var accept = 'application/raml+yaml';
+              if (url.endsWith('json')) {
+                accept = 'application/json';
+              }
+
               var settings = ($window.RAML || {}).Settings || {};
               var proxy    = (options.bypassProxy ? {} : settings).proxy || '';
               var req      = {
                 method: 'GET',
                 url: proxy + url,
                 headers: {
-                  'Accept': 'application/raml+yaml'
+                  'Accept': accept
                 },
                 transformResponse: null
               };
