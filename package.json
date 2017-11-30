@@ -1,6 +1,6 @@
 {
   "name": "@elamajs/api-console",
-  "version": "3.0.24.1",
+  "version": "3.0.25",
   "description": "Api-Console for RAML based app",
   "files": [
     "dist",
