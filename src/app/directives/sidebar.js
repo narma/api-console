@@ -433,7 +433,7 @@
               client.baseUriParameters(pathBuilder.baseUriContext);
             });
 
-            client.baseUri = client.baseUri.replace(/(https)|(http)/, $scope.currentProtocol.toLocaleLowerCase());
+            // client.baseUri = client.baseUri.replace(/(https)|(http)/, $scope.currentProtocol.toLocaleLowerCase());
             url = client.baseUri + pathBuilder(segmentContexts);
           } catch (e) {
             console.error(e);

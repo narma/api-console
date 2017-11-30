@@ -1,8 +1,14 @@
 'use strict';
 
 (function() {
-  var Client = function(configuration) {
-    this.baseUri = configuration.getBaseUri();
+  var Client = function() {
+    var baseUri = '';
+    if (typeof location.origin === 'undefined') {
+      baseUri = location.protocol + '//' + location.host;
+    } else {
+      baseUri = location.origin;
+    }
+    this.baseUri = baseUri;
   };
 
   function createConfiguration(parsed) {

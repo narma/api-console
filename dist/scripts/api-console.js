@@ -2787,7 +2787,7 @@
               client.baseUriParameters(pathBuilder.baseUriContext);
             });
 
-            client.baseUri = client.baseUri.replace(/(https)|(http)/, $scope.currentProtocol.toLocaleLowerCase());
+            // client.baseUri = client.baseUri.replace(/(https)|(http)/, $scope.currentProtocol.toLocaleLowerCase());
             url = client.baseUri + pathBuilder(segmentContexts);
           } catch (e) {
             console.error(e);
@@ -3477,13 +3477,18 @@
           },
           httpResolver:      {
             getResourceAsync: function getResourceAsync(url) {
+              var accept = 'application/raml+yaml';
+              if (url.endsWith('json')) {
+                accept = 'application/json';
+              }
+
               var settings = ($window.RAML || {}).Settings || {};
               var proxy    = (options.bypassProxy ? {} : settings).proxy || '';
               var req      = {
                 method: 'GET',
                 url: proxy + url,
                 headers: {
-                  'Accept': 'application/raml+yaml'
+                  'Accept': accept
                 },
                 transformResponse: null
               };
@@ -3692,8 +3697,14 @@
 'use strict';
 
 (function() {
-  var Client = function(configuration) {
-    this.baseUri = configuration.getBaseUri();
+  var Client = function() {
+    var baseUri = '';
+    if (typeof location.origin === 'undefined') {
+      baseUri = location.protocol + '//' + location.host;
+    } else {
+      baseUri = location.origin;
+    }
+    this.baseUri = baseUri;
   };
 
   function createConfiguration(parsed) {
