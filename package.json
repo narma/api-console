@@ -1,6 +1,6 @@
 {
-  "name": "api-console",
-  "version": "3.0.24",
+  "name": "@elamajs/api-console",
+  "version": "3.0.24.1",
   "description": "Api-Console for RAML based app",
   "files": [
     "dist",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mulesoft/api-console.git"
+    "url": "https://github.com/narma/api-console.git"
   },
   "keywords": [
     "api-console",
@@ -23,9 +23,9 @@
   "author": "MuleSoft, Inc.",
   "license": "CPAL-1.0",
   "bugs": {
-    "url": "https://github.com/mulesoft/api-console/issues"
+    "url": "https://github.com/narma/api-console/issues"
   },
-  "homepage": "https://github.com/mulesoft/api-console",
+  "homepage": "https://github.com/narma/api-console",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.0",
